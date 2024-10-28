@@ -18,4 +18,22 @@ public class InputView {
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
+
+    public static int inputTryCount() {
+        System.out.println("시도할 횟수는 몇 회인가요?");
+        String input = Console.readLine();
+        validateTryCount(input);
+        return Integer.parseInt(input);
+    }
+
+    private static void validateTryCount(String input) {
+        if (!input.matches("\\d+")) {
+            throw new IllegalArgumentException("시도 횟수는 숫자여야 함.");
+        }
+        if (Integer.parseInt(input) < 1) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 함.");
+        }
+    }
+
+
 }
