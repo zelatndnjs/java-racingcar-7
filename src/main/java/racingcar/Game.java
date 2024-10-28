@@ -21,6 +21,10 @@ public class Game {
         }
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     private List<Car> createCars(List<String> carNames) {
         List<Car> carList = new ArrayList<>();
         for (String name : carNames) {
