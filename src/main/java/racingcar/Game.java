@@ -25,6 +25,13 @@ public class Game {
         return cars;
     }
 
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
+
     private List<Car> createCars(List<String> carNames) {
         List<Car> carList = new ArrayList<>();
         for (String name : carNames) {
