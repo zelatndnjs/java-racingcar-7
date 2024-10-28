@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
@@ -24,6 +26,15 @@ public class Game {
     public List<Car> getCars() {
         return cars;
     }
+
+    public List<String> getWinners() {
+        int maxPosition = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
 
     private int getMaxPosition() {
         return cars.stream()
