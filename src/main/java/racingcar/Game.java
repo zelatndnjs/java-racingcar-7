@@ -3,9 +3,18 @@ package racingcar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.ArrayList;
 
 public class Game {
     private final List<Car> cars;
+
+    private List<Car> createCars(List<String> carNames) {
+        List<Car> carList = new ArrayList<>();
+        for (String name : carNames) {
+            carList.add(new Car(name));
+        }
+        return carList;
+    }
 
     private void validateDuplicateNames(List<String> carNames) {
         Set<String> nameSet = new HashSet<>(carNames);
