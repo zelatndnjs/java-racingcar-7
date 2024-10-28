@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
     private final List<Car> cars;
@@ -11,6 +12,13 @@ public class Game {
     public Game(List<String> carNames) {
         validateDuplicateNames(carNames);
         cars = createCars(carNames);
+    }
+
+    public void moveCars() {
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(0,9);
+            car.move(randomNumber);
+        }
     }
 
     private List<Car> createCars(List<String> carNames) {
