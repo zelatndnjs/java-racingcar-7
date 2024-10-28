@@ -8,6 +8,11 @@ import java.util.ArrayList;
 public class Game {
     private final List<Car> cars;
 
+    public Game(List<String> carNames) {
+        validateDuplicateNames(carNames);
+        cars = createCars(carNames);
+    }
+
     private List<Car> createCars(List<String> carNames) {
         List<Car> carList = new ArrayList<>();
         for (String name : carNames) {
