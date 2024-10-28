@@ -20,6 +20,10 @@ public class Car {
         return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     private void validateName(String name) {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("이름이 빈 값일 순 없음.");
